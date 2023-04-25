@@ -15,13 +15,10 @@ export const authOptions: NextAuthOptions = {
           username: string;
           password: string;
         };
-        const res = await axios.post(
-          "http://174.138.79.232/api/v1/auth/login",
-          {
-            email: username,
-            password,
-          }
-        );
+        const res = await axios.post("/auth/login", {
+          email: username,
+          password,
+        });
         const user = await res.data;
 
         if (user) {

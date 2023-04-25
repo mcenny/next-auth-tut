@@ -29,7 +29,7 @@ const Header = () => {
       <Link href={'/admin/user-panel'}>User Panel</Link>
       <div className="user">
         {session?.user ? (<>
-          <p>{session.user.user.name}</p>
+          <p>{session?.user?.user?.name}</p>
           <Link href={'/login'}>
             <button onClick={() => signOut()}>
               Logout

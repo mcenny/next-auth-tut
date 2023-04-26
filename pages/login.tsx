@@ -12,11 +12,11 @@ const LoginStyle = styled.div`
 `
 
 function Login() {
-  const userName = useRef('')
+  const email = useRef('')
   const password = useRef('')
   const onSubmit = async () => {
     const result = await signIn('credentials', {
-      username: userName.current,
+      email: email.current,
       password: password.current,
       redirect: true,
       callbackUrl: '/'
@@ -26,7 +26,7 @@ function Login() {
   return (
     <LoginStyle>
       <div className='form'>
-        <input type="text" placeholder='username' onChange={(e) => (userName.current = e.target.value)} />
+        <input type="text" placeholder='email' onChange={(e) => (email.current = e.target.value)} />
         <input type="password" placeholder='password' onChange={(e) => (password.current = e.target.value)} />
         <input type="button" value="Submit" onClick={onSubmit} />
       </div>

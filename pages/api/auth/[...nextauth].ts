@@ -7,16 +7,20 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "jsmith@gmail.com",
+        },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const { username, password } = credentials as {
-          username: string;
+        const { email, password } = credentials as {
+          email: string;
           password: string;
         };
         const res = await axios.post("/auth/login", {
-          email: username,
+          email,
           password,
         });
         const user = await res.data;
